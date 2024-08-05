@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('table_produtos', function (Blueprint $table) {
             $table->id();
+            $table->text('nome')->unique();
+            $table->text('descricao')->nullable();
+            $table->numeric('valor', 8, 2);
             $table->timestamps();
+
         });
     }
 
