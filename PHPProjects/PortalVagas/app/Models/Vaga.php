@@ -13,7 +13,7 @@ class Vaga extends Model
 
 
     protected $fillable = [
-        'titulo', 'descricao', 'localizacao', 'salario', 'empresa_id',
+        'titulo', 'descricao', 'localizacao', 'salario', 'empresa',
     ];
 
 
