@@ -15,18 +15,18 @@
                     <li><a href="{{ route('home') }}" class="btn-main">Início</a></li>
 
                     @auth('aluno')
-                        <li><a href="{{ route('aluno.dashboard') }}" class="btn-main">Dashboard Aluno</a></li>
+                        <li><a href="{{ route('aluno.dashboard') }}" class="btn-main">Home Aluno</a></li>
                         <li><a href="{{ route('aluno.cursos') }}" class="btn-main">Meus Cursos</a></li>
                     @endauth
 
                     @auth('professor')
-                        <li><a href="{{ route('professor.dashboard') }}" class="btn-main">Dashboard Professor</a></li>
+                        <li><a href="{{ route('professor.dashboard') }}" class="btn-main">Home Professor</a></li>
                         <li><a href="{{ route('professor.cursos') }}" class="btn-main">Meus Cursos</a></li>
                     @endauth
 
                     @guest
-                        <li><a href="{{ route('login.aluno') }}" class="btn-main">Login como Aluno</a></li>
-                        <li><a href="{{ route('login.professor') }}" class="btn-main">Login como Professor</a></li>
+                        <li><a href="{{ route('login.aluno') }}" class="btn-main">Login Aluno</a></li>
+                        <li><a href="{{ route('login.professor') }}" class="btn-main">Login Professor</a></li>
                         <li><a href="{{ route('register') }}" class="btn-secondary">Cadastrar-se</a></li>
                     @endguest
                 </ul>
@@ -36,14 +36,10 @@
 
     <main>
         <div class="container">
-            <h1>Bem-vindo à Plataforma de Cursos Online</h1>
+            <h1>Bem-vindo à Plataforma de Ensino EAD</h1>
 
             @guest
-            <div class="buttons">
-                <a href="{{ route('login.aluno') }}" class="btn-main">Login como Aluno</a>
-                <a href="{{ route('login.professor') }}" class="btn-main">Login como Professor</a>
-                <a href="{{ route('register') }}" class="btn-secondary">Cadastrar-se</a>
-            </div>
+          
             @endguest
         </div>
     </main>

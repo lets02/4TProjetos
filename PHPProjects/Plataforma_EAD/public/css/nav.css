@@ -14,14 +14,17 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 /* Estilos do cabeçalho e navbar */
 header {
-    background-color: #f8f8f8;
+    background-color: #ffffff;
     border-bottom: 2px solid #e0e0e0;
-    padding: 15px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -30,39 +33,79 @@ nav {
     align-items: center;
 }
 
-nav h1 {
-    font-size: 1.8em;
-    color: #333;
-    margin: 0;
+ul{
+    display: flex;
+    flex-direction: row;
 }
 
-nav ul {
-    list-style-type: none;
+li{
+    margin-left: 1.5em;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
 }
 
-nav ul li {
-    margin: 0 10px;
+.nav-links li {
+    margin: 0 15px; /* Aumenta o espaçamento entre os itens */
 }
 
-nav ul li a {
+.nav-item{
+    margin-top: 1em;
+}
+
+.nav-link {
     color: #333;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 8px 15px;
     display: block;
     border-radius: 25px;
     background-color: #e8d8e8; /* Fundo rosa claro */
     border: 1px solid #d0a9d6; /* Borda rosa suave */
     transition: all 0.3s;
     font-weight: bold;
+    margin-bottom: 1em;
 }
 
-nav ul li a:hover {
+.nav-link:hover {
     background-color: #d0a9d6; /* Fundo rosa mais escuro */
     color: #fff;
     border-color: #d0a9d6;
+}
+
+/* Estilo do botão de logout */
+.logout-form {
+    margin-left: 20px;
+}
+
+.btn-logout {
+    background-color: #f44336;
+    border: none;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #c62828;
 }
 
 /* Estilo dos botões principais e secundários */
@@ -70,7 +113,7 @@ nav ul li a:hover {
     background-color: #e8d8e8;
     border: 1px solid #d0a9d6;
     color: #333;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 25px;
     font-weight: bold;
     transition: all 0.3s;
@@ -86,7 +129,7 @@ nav ul li a:hover {
     background-color: #fff;
     border: 1px solid #d0a9d6;
     color: #d0a9d6;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 25px;
     font-weight: bold;
     transition: all 0.3s;
@@ -109,10 +152,53 @@ footer {
 
 footer .container {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
 }
 
-footer form {
+.logo-footer {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.logo-img-footer {
+    height: 30px;
+    width: auto;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.footer-links li {
     display: inline;
+    margin: 0 10px;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Ocultar links em dispositivos menores */
+    }
+
+    .nav-links.show {
+        display: flex; /* Mostrar links quando ativado */
+        flex-direction: column;
+        align-items: center;
+    }
 }

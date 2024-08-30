@@ -44,10 +44,10 @@
             font-size: 16px;
         }
         .btn-primary {
-            background-color: #007bff;
+            background-color: #cf76b4;
         }
         .btn-secondary {
-            background-color: #6c757d;
+            background-color: #bc2d87;
         }
         .btn-primary:hover, .btn-secondary:hover {
             opacity: 0.8;

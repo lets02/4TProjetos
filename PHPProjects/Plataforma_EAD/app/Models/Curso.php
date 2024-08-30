@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Curso extends Model
 {
@@ -23,9 +24,9 @@ class Curso extends Model
     ];
 
     // Relacionamento: Um curso pode ter muitos alunos.
-    public function alunos()
+    public function alunos(): BelongsToMany
     {
-        return $this->belongsToMany(Aluno::class, 'aluno_curso');
+        return $this->belongsToMany(Aluno::class, 'aluno_curso', 'curso_id', 'aluno_id');
     }
 
     // Relacionamento: Um curso pertence a um professor.

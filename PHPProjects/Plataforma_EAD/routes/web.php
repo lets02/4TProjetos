@@ -62,3 +62,17 @@ Route::group(['middleware' => ['auth:professor']], function () {
 // Logout para alunos e professores
 Route::post('logout/aluno', [LoginController::class, 'logoutAluno'])->name('logout.aluno');
 Route::post('logout/professor', [LoginController::class, 'logoutProfessor'])->name('logout.professor');
+
+// Rotas para cursos
+Route::resource('cursos', CursoController::class);
+
+// routes/web.php
+
+// Página de cursos disponíveis
+Route::get('/aluno/cursos', [AlunoController::class, 'cursos'])->name('aluno.cursos');
+
+// Inscrição no curso
+Route::post('/aluno/cursos/{curso_id}/inscrever', [AlunoController::class, 'inscrever'])->name('aluno.inscrever');
+
+
+

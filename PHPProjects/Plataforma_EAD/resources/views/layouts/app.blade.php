@@ -3,36 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Plataforma de Cursos Online')</title>
+    <title>@yield('title', 'Let\'s Study')</title>
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
 </head>
 <body>
     <header>
         <nav>
             <div class="container">
-                <a href="#" class="logo">Plataforma de Cursos Online</a>
-                <div class="nav-buttons">
-                    <ul>
-                        <li><a href="{{ route('home') }}" class="btn-main">Início</a></li>
+                <a href="#" class="logo">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
+                </a>
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Início</a></li>
 
-                        @auth('aluno')
-                            <li><a href="{{ route('aluno.dashboard') }}" class="btn-main">Dashboard Aluno</a></li>
-                            <li><a href="{{ route('aluno.cursos') }}" class="btn-main">Meus Cursos</a></li>
-                        @endauth
+                    @auth('aluno')
+                        <li class="nav-item"><a href="{{ route('aluno.dashboard') }}" class="nav-link">Home Aluno</a></li>
+                        <li class="nav-item"><a href="{{ route('aluno.cursos') }}" class="nav-link">Meus Cursos</a></li>
+                    @endauth
 
-                        @auth('professor')
-                            <li><a href="{{ route('professor.dashboard') }}" class="btn-main">Dashboard Professor</a></li>
-                            <li><a href="{{ route('cursos.create') }}" class="btn-main">Criar Curso</a></li>
-                            <li><a href="{{ route('professor.cursos') }}" class="btn-main">Meus Cursos</a></li>
-                        @endauth
+                    @auth('professor')
+                        <li class="nav-item"><a href="{{ route('professor.dashboard') }}" class="nav-link">Home Professor</a></li>
+                        <li class="nav-item"><a href="{{ route('cursos.create') }}" class="nav-link">Criar Curso</a></li>
+                        <li class="nav-item"><a href="{{ route('professor.cursos') }}" class="nav-link">Meus Cursos</a></li>
+                    @endauth
 
-                        @guest
-                            <li><a href="{{ route('login.aluno') }}" class="btn-main">Login como Aluno</a></li>
-                            <li><a href="{{ route('login.professor') }}" class="btn-main">Login como Professor</a></li>
-                            <li><a href="{{ route('register') }}" class="btn-secondary">Cadastrar-se</a></li>
-                        @endguest
-                    </ul>
-                </div>
+                    @guest
+                        <li class="nav-item"><a href="{{ route('login.aluno') }}" class="nav-link">Login Aluno</a></li>
+                        <li class="nav-item"><a href="{{ route('login.professor') }}" class="nav-link">Login Professor</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Cadastrar-se</a></li>
+                    @endguest
+
+                    @auth
+                        
+                    @endauth
+                </ul>
             </div>
         </nav>
     </header>
@@ -46,18 +50,27 @@
     <footer>
         <div class="container">
             @auth('aluno')
-                <form action="{{ route('logout.aluno') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn-main">Logout Aluno</button>
-                </form>
-            @endauth
+            <form action="{{ route('logout.aluno') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn-main">Logout Aluno</button>
+            </form>
+        @endauth
 
-            @auth('professor')
-                <form action="{{ route('logout.professor') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn-main">Logout Professor</button>
-                </form>
-            @endauth
+        @auth('professor')
+            <form action="{{ route('logout.professor') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn-main">Logout Professor</button>
+            </form>
+        @endauth
+            <a href="#" class="logo-footer">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img-footer">
+            </a>
+            <p>&copy; 2024 Let&apos;s Study. Todos os direitos reservados.</p>
+            <ul class="footer-links">
+                <li class="nav-item"><a href="#">Sobre</a></li>
+                <li class="nav-item"><a href="#">Contato</a></li>
+                <li class="nav-item"><a href="#">Política de Privacidade</a></li>
+            </ul>
         </div>
     </footer>
 </body>

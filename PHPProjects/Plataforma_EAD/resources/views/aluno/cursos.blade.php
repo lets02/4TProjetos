@@ -1,19 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Meus Cursos')
+@section('title', 'Cursos Disponíveis')
 
 @section('content')
     <div class="container">
-        <h1>Meus Cursos</h1>
-
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+        <h1>Cursos Disponíveis</h1>
 
         @if($cursos->isEmpty())
-            <p>Você ainda não criou nenhum curso.</p>
+            <p>Atualmente, não há cursos disponíveis.</p>
         @else
             <div class="card-container">
                 @foreach($cursos as $curso)
@@ -26,13 +20,10 @@
                             <p><strong>Data de Início:</strong> {{ \Carbon\Carbon::parse($curso->data_inicio)->format('d/m/Y') }}</p>
                             <p><strong>Data de Fim:</strong> {{ \Carbon\Carbon::parse($curso->data_fim)->format('d/m/Y') }}</p>
                             <p><strong>Preço:</strong> R$ {{ number_format($curso->preco, 2, ',', '.') }}</p>
-                        </div>
-                        <div class="actions">
-                            <a href="{{ route('cursos.edit', $curso->id) }}" class="btn btn-secondary">Editar</a>
-                            <form action="{{ route('cursos.destroy', $curso->id) }}" method="POST" style="display:inline;">
+
+                            <form action="{{ route('aluno.inscrever', $curso->id) }}" method="POST">
                                 @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Excluir</button>
+                                <button type="submit" class="btn-main">Inscrever-se</button>
                             </form>
                         </div>
                     </div>
